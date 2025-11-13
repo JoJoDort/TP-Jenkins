@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                sh 'echo "Pipeline OK"'
+                sh 'npm install'
             }
         }
     }
