@@ -1,9 +1,20 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Example') {
             steps {
-                bat 'npm install'
+                echo "Start"
+
+                retry(2) {
+                    bat 'echo Retry block running'
+                }
+
+                timeout(time: 1, unit: 'MINUTES') {
+                    bat 'echo Timeout block running'
+                }
+
+                bat 'echo Finish'
             }
         }
     }
